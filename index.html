@@ -22,6 +22,15 @@
   --text:#c0c0d8;
   --r:14px;
 }
+  html,
+body{
+    overflow-x:hidden;
+    width:100%;
+}
+
+*{
+    box-sizing:border-box;
+}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
 
@@ -900,7 +909,9 @@ reveals.forEach(el=>io.observe(el));
 
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>{
-  nav.style.padding=window.scrollY>60?'12px 64px':'20px 64px';
+  nav.style.padding = window.innerWidth <= 1000
+  ? '16px 20px'
+  : (window.scrollY > 60 ? '12px 64px' : '20px 64px');
 });
 </script>
 </body>
